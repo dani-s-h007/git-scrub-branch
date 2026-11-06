@@ -1,4 +1,4 @@
-# git-scrub-branch 🌿
+# git-scrub-branch
 
 [![CI](https://github.com/dani-s-h007/git-scrub-branch/actions/workflows/ci.yml/badge.svg)](https://github.com/dani-s-h007/git-scrub-branch/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -11,7 +11,7 @@ When teams merge pull requests using GitHub's **Squash and Merge**, the commit S
 
 ---
 
-## ✨ Features
+## Features
 
 - **Squash-Merge Detection**: Compares commit cherry patch-ids to detect branches whose actual code changes landed on `main`, even when commit SHAs don't match.
 - **Upstream Deletion Tracking**: Identifies local branches whose remote branch was already deleted (`[gone]`).
@@ -22,7 +22,7 @@ When teams merge pull requests using GitHub's **Squash and Merge**, the commit S
 
 ---
 
-## 🚀 Installation
+## Installation
 
 ```bash
 # Run on-demand with npx
@@ -34,7 +34,7 @@ npm install -g git-scrub-branch
 
 ---
 
-## 🛠️ CLI Usage
+## CLI Usage
 
 ### Preview Stale Branches (Dry-Run)
 ```bash
@@ -55,7 +55,7 @@ git-scrub-branch --target develop --apply
 
 ---
 
-## 💻 Programmatic TypeScript API
+## Programmatic TypeScript API
 
 ```typescript
 import { analyzeBranches, deleteBranch } from 'git-scrub-branch';
@@ -70,7 +70,7 @@ for (const branch of analysis.staleBranches) {
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ```bash
 npm test
@@ -78,7 +78,7 @@ npm test
 
 ---
 
-## 📄 License
+## License
 
 MIT © Essentials Toolkit Authors
 

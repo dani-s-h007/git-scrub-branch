@@ -5,11 +5,11 @@
 
 import { PROTECTED_BRANCHES } from '../src/git.js';
 
-console.log('\n🚀 Starting git-scrub-branch Interactive Demo...\n');
+console.log('\n=== [DEMO] Starting git-scrub-branch ===\n');
 
 console.log('Protected Trunk Branches (Guaranteed Safe from Accidental Deletion):');
 console.log('------------------------------------------------------------');
-Array.from(PROTECTED_BRANCHES).forEach((b) => console.log(` 🛡️  ${b}`));
+Array.from(PROTECTED_BRANCHES).forEach((b) => console.log(` - ${b}`));
 console.log('------------------------------------------------------------\n');
 
 console.log('Simulating Branch Clean Analysis:');
@@ -28,5 +28,5 @@ console.log('\nAutomatic Safety Restore Script Generated:');
 console.log('------------------------------------------------------------');
 simulatedStaleBranches.forEach((b) => console.log(`git branch ${b.name} ${b.sha}`));
 console.log('------------------------------------------------------------');
-console.log('🎉 Demo completed successfully!\n');
+console.log('[SUCCESS] Demo completed successfully.\n');
 

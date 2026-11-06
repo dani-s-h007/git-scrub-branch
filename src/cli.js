@@ -49,14 +49,14 @@ export async function runCli(argv = process.argv.slice(2)) {
     return 0;
   }
 
-  console.log('\n🌿 git-scrub-branch - Stale & Squash-Merged Branch Cleaner');
+  console.log('\ngit-scrub-branch - Stale & Squash-Merged Branch Cleaner');
   console.log('========================================================================');
   console.log(`Current Branch: ${analysis.currentBranch}`);
   console.log(`Target Trunk:   ${analysis.targetBranch}`);
   console.log(`Found ${analysis.staleBranches.length} stale / merged branches.\n`);
 
   if (analysis.staleBranches.length === 0) {
-    console.log('✨ Repository is completely clean! No stale branches found.');
+    console.log(' Repository is completely clean! No stale branches found.');
     console.log('========================================================================\n');
     return 0;
   }
@@ -67,14 +67,14 @@ export async function runCli(argv = process.argv.slice(2)) {
   }
 
   if (!values.apply) {
-    console.log('\n🔒 DRY RUN MODE (No branches were deleted)');
-    console.log('👉 To delete these branches, run:');
+    console.log('\n[DRY-RUN] Mode (No branches were deleted)');
+    console.log('-> To delete these branches, run:');
     console.log('   $ git-scrub-branch --apply');
     console.log('========================================================================\n');
     return 0;
   }
 
-  console.log('\n🚀 Applying deletion...');
+  console.log('\nApplying deletion...');
   console.log('--- SAFETY RESTORE SCRIPT (Save this if you ever need to restore) ---');
   console.log(analysis.restoreScript);
   console.log('---------------------------------------------------------------------\n');
@@ -83,14 +83,14 @@ export async function runCli(argv = process.argv.slice(2)) {
   for (const b of analysis.staleBranches) {
     const res = deleteBranch(b.name, values.force || !b.canStandardDelete, cwd);
     if (res.success) {
-      console.log(`✓ Deleted: ${b.name}`);
+      console.log(`[OK] Deleted: ${b.name}`);
       deletedCount++;
     } else {
-      console.log(`✗ Failed to delete ${b.name}: ${res.error}`);
+      console.log(`[FAIL] Failed to delete ${b.name}: ${res.error}`);
     }
   }
 
-  console.log(`\n🎉 Successfully deleted ${deletedCount} branches.`);
+  console.log(`\n[SUCCESS] Successfully deleted ${deletedCount} branches.`);
   console.log('========================================================================\n');
   return 0;
 }
